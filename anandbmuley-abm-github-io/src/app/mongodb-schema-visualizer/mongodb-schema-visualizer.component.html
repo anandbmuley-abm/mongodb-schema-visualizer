@@ -1,0 +1,7 @@
+<h2>Schema Visualization</h2>
+
+<input *ngIf="collections.length == 0" type="file" multiple placeholder="Json Schema File" (change)="loadJsonFile($event.target.files)">
+
+<div *ngFor="let collection of collections">
+  <mongo-collection [collection]="collection"></mongo-collection>
+</div>
