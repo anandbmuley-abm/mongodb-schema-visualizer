@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MongodbSchemaVisualizerComponent } from './mongodb-schema-visualizer/mongodb-schema-visualizer.component';
 import { CollectionComponent } from './mongodb-schema-visualizer/collection/collection.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    DragDropModule
+    DragDropModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

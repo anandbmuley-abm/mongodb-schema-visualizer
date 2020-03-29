@@ -1,7 +1,17 @@
-<h2>Schema Visualization</h2>
+<div>
+  <h2>Schema Visualization</h2>
 
-<input *ngIf="collections.length == 0" type="file" multiple placeholder="Json Schema File" (change)="loadJsonFile($event.target.files)">
+  <!-- <button *ngIf="collections.length > 0" class="pojos-download-btn" mat-raised-button (click)="downloadAll()" color="primary">POJOS</button> -->
+  <button [disableRipple]="true" *ngIf="collections.length > 0" class="pojos-download-btn" mat-icon-button aria-label="Download MongoDB Pojo Models" (click)="downloadAll()">
+    <div style="font-size: 15px;font-weight: 400;color: #945494">
+      Pojo Models
+    </div>
+    <mat-icon title="Download MongoDB Pojo Models" style="padding-left: 20px;font-size: 40px;color: #945494">get_app</mat-icon><br>
+  </button>
 
-<div *ngFor="let collection of collections">
-  <mongo-collection [collection]="collection"></mongo-collection>
+  <input style="padding-left: 60px" *ngIf="collections.length == 0" type="file" multiple placeholder="Json Schema File" (change)="loadJsonFile($event.target.files)">
+
+  <div *ngFor="let collection of collections">
+    <mongo-collection [collection]="collection"></mongo-collection>
+  </div>
 </div>

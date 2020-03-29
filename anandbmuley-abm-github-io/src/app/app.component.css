@@ -1,0 +1,12 @@
+.site-header {
+  border: solid 1px #945494;
+  padding-bottom: 10px;
+  background-color: #945494;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: white;
+  font-weight: 600;
+  margin-top: -12px;
+}

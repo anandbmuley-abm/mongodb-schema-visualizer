@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Collection } from './collection/collection.component';
+import { PojoGeneratorService } from './pojo-generator.service';
 
 @Component({
   selector: 'app-mongodb-schema-visualizer',
@@ -10,7 +11,7 @@ export class MongodbSchemaVisualizerComponent implements OnInit {
 
   collections = []
 
-  constructor() { }
+  constructor(private pojoGeneratorService: PojoGeneratorService) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,12 @@ export class MongodbSchemaVisualizerComponent implements OnInit {
       this.collections.push(new Collection(fileName, parsedFileContent))
     }
     fileReader.readAsText(file);
+  }
+
+  downloadAll() {
+    var collection: Collection = this.collections[0];
+    this.pojoGeneratorService.generate(collection.getContent(), collection.getName(), false);
+    this.pojoGeneratorService.downloadAll();
   }
 
   loadJsonFile(files: FileList) {

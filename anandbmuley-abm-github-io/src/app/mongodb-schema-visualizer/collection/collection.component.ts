@@ -10,6 +10,14 @@ export class Collection {
     this.data = data
   }
 
+  getName(): string {
+    return this.name;
+  }
+
+  getContent(): object {
+    return this.data;
+  }
+
 }
 
 
