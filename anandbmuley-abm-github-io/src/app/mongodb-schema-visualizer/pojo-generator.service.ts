@@ -133,7 +133,7 @@ export class PojoField {
   getGetterSetters(): String {
     var getterDisplay = "\n\n\tpublic " + this.firstCharToUpperCase(this.datatype) + " get" + this.firstCharToUpperCase(this.name) +
       "(){\n" +
-      "\t\treturn this." + this.name + ";\n"
+      "\treturn this." + this.name + ";\n"
       + "\t}";
     var setterDisplay = "\n\n\tpublic void set" + this.firstCharToUpperCase(this.name) +
       "(" + this.firstCharToUpperCase(this.datatype) + " " + this.firstCharToLowerCase(this.name) + "){\n" +

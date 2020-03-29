@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-export class Collection {
+export class MongoCollection {
 
   name: string
   data: object
@@ -28,7 +28,7 @@ export class Collection {
 })
 export class CollectionComponent implements OnInit {
 
-  @Input() collection: Collection
+  @Input() collection: MongoCollection
 
   constructor() { }
 
