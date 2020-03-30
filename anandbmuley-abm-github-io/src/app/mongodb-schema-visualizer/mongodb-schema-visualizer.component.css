@@ -18,3 +18,11 @@
   right: 10%;
   top: 15%;
 }
+
+.app-version {
+  margin-top: -10px;
+  color: #a2a2a2;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}

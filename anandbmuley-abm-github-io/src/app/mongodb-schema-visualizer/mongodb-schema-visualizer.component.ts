@@ -9,6 +9,8 @@ import { PojoGeneratorService } from './pojo-generator.service';
 })
 export class MongodbSchemaVisualizerComponent implements OnInit {
 
+  appVersion = "1.0"
+
   collections = []
 
   constructor(private pojoGeneratorService: PojoGeneratorService) { }

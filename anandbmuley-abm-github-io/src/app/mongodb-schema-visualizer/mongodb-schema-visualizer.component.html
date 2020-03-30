@@ -1,6 +1,8 @@
 <div>
   <h2>Schema Visualization</h2>
-
+  <div class="app-version">
+    Version : {{appVersion}}
+  </div>
   <!-- <button *ngIf="collections.length > 0" class="pojos-download-btn" mat-raised-button (click)="downloadAll()" color="primary">POJOS</button> -->
   <button [disableRipple]="true" *ngIf="collections.length > 0" class="pojos-download-btn" mat-icon-button aria-label="Download MongoDB Pojo Models" (click)="downloadAll()">
     <div style="font-size: 15px;font-weight: 400;color: #945494">
