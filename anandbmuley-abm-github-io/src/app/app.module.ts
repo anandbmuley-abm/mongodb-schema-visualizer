@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,22 +13,29 @@ import { MongodbSchemaVisualizerComponent } from './mongodb-schema-visualizer/mo
 import { CollectionComponent } from './mongodb-schema-visualizer/collection/collection.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { CreateNewSchemaComponent } from './mongodb-schema-visualizer/create-new-schema/create-new-schema.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     MongodbSchemaVisualizerComponent,
-    CollectionComponent
+    CollectionComponent,
+    CreateNewSchemaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatCardModule,
     MatButtonModule,
     DragDropModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

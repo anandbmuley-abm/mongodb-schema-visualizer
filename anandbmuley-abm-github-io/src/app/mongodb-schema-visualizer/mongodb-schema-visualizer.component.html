@@ -1,19 +1,22 @@
-<div>
-  <h2>Schema Visualization</h2>
-  <div class="app-version">
-    Version : {{appVersion}}
-  </div>
-  <!-- <button *ngIf="collections.length > 0" class="pojos-download-btn" mat-raised-button (click)="downloadAll()" color="primary">POJOS</button> -->
-  <button [disableRipple]="true" *ngIf="collections.length > 0" class="pojos-download-btn" mat-icon-button aria-label="Download MongoDB Pojo Models" (click)="downloadAll()">
-    <div style="font-size: 15px;font-weight: 400;color: #945494">
-      Pojo Models
+<mat-drawer-container class="visualizer-container" autosize>
+  <mat-drawer #drawer [disableClose]="true" [opened]="true" class="visualizer-sidenav" mode="side">
+    <visualizer-create-new-schema [(mode)]="mode" [(schema)]="selectedSchema" (onSave)="saveUpdatedSchema($event)" (onAdd)="addNewSchema($event)"></visualizer-create-new-schema>
+    <button (click)="openFileBrowser($event)" style="margin-left: 10px" mat-raised-button color="primary">UPLOAD</button>
+    <input id="jsonFileBrowserBtn" style="padding-left: 60px;display: none" type="file" multiple placeholder="Json Schema File" (change)="loadJsonFile($event.target.files)">
+  </mat-drawer>
+
+  <div #screen class="visualizer-sidenav-content">
+    <!-- <button data-html2canvas-ignore style="top: 0px;" type="button" mat-button (click)="drawer.toggle()">Toggle Create Schema</button> -->
+    <button *ngIf="collections.length > 0" data-html2canvas-ignore mat-button (click)="downloadSnapshot()">Download as Image</button>
+    <div id="vis-disp" *ngFor="let collection of collections">
+      <mongo-collection style="float: left" (onSelectingSchema)="editSchema($event)" [collection]="collection"></mongo-collection>
+      <br>
     </div>
-    <mat-icon title="Download MongoDB Pojo Models" style="padding-left: 20px;font-size: 40px;color: #945494">get_app</mat-icon><br>
-  </button>
-
-  <input style="padding-left: 60px" *ngIf="collections.length == 0" type="file" multiple placeholder="Json Schema File" (change)="loadJsonFile($event.target.files)">
-
-  <div *ngFor="let collection of collections">
-    <mongo-collection [collection]="collection"></mongo-collection>
   </div>
-</div>
+
+  <div id="download">
+    <img #canvas>
+    <a #downloadLink></a>
+  </div>
+
+</mat-drawer-container>
