@@ -7,10 +7,7 @@ import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-mongodb-schema-visualizer',
   templateUrl: './mongodb-schema-visualizer.component.html',
-  styleUrls: ['./mongodb-schema-visualizer.component.css'],
-  providers: [
-    { provide: Window, useValue: window }
-  ]
+  styleUrls: ['./mongodb-schema-visualizer.component.css']
 })
 export class MongodbSchemaVisualizerComponent implements OnInit {
 
@@ -43,7 +40,7 @@ export class MongodbSchemaVisualizerComponent implements OnInit {
     }).then(canvas => {
       this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
-      this.downloadLink.nativeElement.download = 'marble-diagram.png';
+      this.downloadLink.nativeElement.download = 'MongoD Schema Visualization.png';
       this.downloadLink.nativeElement.click();
     });
   }
