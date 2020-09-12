@@ -1,18 +1,25 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>MongoDB Schema Visualizer</mat-card-title>
-    <mat-card-subtitle>Picture is worth a thousand words</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image style="width: 280px" src="assets/SchemaVisualization.png" alt="Basic Schema Example Photo">
-  <mat-card-content>
-    <p>
-      The product helps development teams to share visualized MongoDB schema in a meaningful format.
-      This will make the understanding easy and clear communication of the intent.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <a mat-button routerLink="/mongodb-schema-visualizer">TRY OUT</a>
-    <!-- <button mat-button>SHARE</button> -->
-  </mat-card-actions>
-</mat-card>
+<mat-grid-list cols="3" rowHeight="500px">
+  <mat-grid-tile *ngFor="let product of products">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{product.title}}</mat-card-title>
+        <mat-card-subtitle>{{product.subtitle}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image style="width: 280px" src="{{product.thumbnail}}" alt="Basic Schema Example Photo">
+      <div class="picture-credits">
+        <a title="Image Credits to Freepik.com"
+          href="https://www.freepik.com/free-photos-vectors">{{product.thumbnailCredit}}</a>
+      </div>
+      <mat-card-content>
+        <p>
+          {{product.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button routerLink="{{product.location}}">TRY OUT</a>
+        <!-- <button mat-button>SHARE</button> -->
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

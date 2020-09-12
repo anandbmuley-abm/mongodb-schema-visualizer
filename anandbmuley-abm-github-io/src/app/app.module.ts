@@ -14,8 +14,15 @@ import { CollectionComponent } from './mongodb-schema-visualizer/collection/coll
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { CreateNewSchemaComponent } from './mongodb-schema-visualizer/create-new-schema/create-new-schema.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { JsonPathExtractorComponent } from './json-path-extractor/json-path-extractor.component';
+import { JsonTreeComponent } from './json-path-extractor/json-tree/json-tree.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +30,9 @@ import { MatInputModule } from '@angular/material/input';
     DashboardComponent,
     MongodbSchemaVisualizerComponent,
     CollectionComponent,
-    CreateNewSchemaComponent
+    CreateNewSchemaComponent,
+    JsonPathExtractorComponent,
+    JsonTreeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +44,10 @@ import { MatInputModule } from '@angular/material/input';
     DragDropModule,
     MatIconModule,
     MatSidenavModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule,
+    MatTreeModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
